@@ -2,6 +2,7 @@ package com.example.clientFacility.controller;
 
 import com.example.clientFacility.DTO.ResponseDTO;
 import com.example.clientFacility.DTO.SignUpDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,8 +13,9 @@ import com.example.clientFacility.service.UserService;
 @RequestMapping("/api/user")
 public class UserController {
 
+    @Autowired
     UserService userService;
-    @PostMapping("signup")
+    @PostMapping("/signup")
     public ResponseDTO Signup(@RequestBody SignUpDTO signUpDTO) {
         return userService.signUp(signUpDTO);
     }

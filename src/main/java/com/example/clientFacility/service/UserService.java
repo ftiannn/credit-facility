@@ -12,19 +12,23 @@ import com.example.clientFacility.util.PasswordHelper;
 import java.security.NoSuchAlgorithmException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class UserService {
-    PasswordHelper passwordHelper;
     Logger logger = LoggerFactory.getLogger(UserService.class);
+
+    @Autowired
     UserRepository userRepository;
 
+    @Autowired
     AuthenticationService authenticationService;
     public ResponseDTO signUp(SignUpDTO signUpDTO) {
         String encryptedPassword = signUpDTO.getPassword();
 
         try {
-            encryptedPassword = passwordHelper.encrypt(signUpDTO.getPassword());
+            encryptedPassword = PasswordHelper.encrypt(signUpDTO.getPassword());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             logger.error("hashing password failed {}", e.getMessage());
