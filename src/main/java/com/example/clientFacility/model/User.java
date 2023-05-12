@@ -1,6 +1,6 @@
 package com.example.clientFacility.model;
 
-import com.example.clientFacility.DTO.Enums.Role;
+import com.example.clientFacility.constants.Role;
 import jakarta.persistence.*;
 
 @Entity

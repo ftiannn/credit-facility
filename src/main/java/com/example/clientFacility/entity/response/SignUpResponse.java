@@ -1,10 +1,10 @@
-package com.example.clientFacility.DTO;
+package com.example.clientFacility.entity.response;
 
-public class ResponseDTO {
+public class SignUpResponse {
     private String status;
     private String message;
 
-    public ResponseDTO(String status, String message) {
+    public SignUpResponse(String status, String message) {
         this.status = status;
         this.message = message;
     }

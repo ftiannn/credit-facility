@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tokens")
+@Table(name = "TOKEN")
 public class Token {
 
     @Id

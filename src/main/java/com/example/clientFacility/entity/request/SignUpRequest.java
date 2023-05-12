@@ -1,6 +1,6 @@
-package com.example.clientFacility.DTO;
+package com.example.clientFacility.entity.request;
 
-public class SignUpDTO {
+public class SignUpRequest {
     private String firstName;
     private String lastName;
     private String email;
