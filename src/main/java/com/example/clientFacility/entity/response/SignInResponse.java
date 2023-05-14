@@ -4,9 +4,20 @@ public class SignInResponse {
     private String status;
     private String token;
 
-    public SignInResponse(String status, String token) {
+    private String name;
+
+    public SignInResponse(String status, String name, String token) {
         this.status = status;
+        this.name = name;
         this.token = token;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getStatus() {

@@ -19,20 +19,16 @@ public class User {
     @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "USERNAME")
-    private String userName;
-
     @Column(name = "PASSWORD")
     private String password;
     @Enumerated(EnumType.STRING)
     @Column(name = "ROLE")
     private Role role;
 
-    public User(String firstName, String lastName, String email, String userName, String password) {
+    public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.userName = userName;
         this.password = password;
         this.role = null;
     }
@@ -68,14 +64,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getPassword() {

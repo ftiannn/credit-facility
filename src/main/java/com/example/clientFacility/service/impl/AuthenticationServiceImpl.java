@@ -16,7 +16,7 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
         tokenRepository.save(authenticationToken);
     }
 
-    public Token getToken(User user) {
+    public Token retrieveToken(User user) {
         return tokenRepository.findTokenByUser(user);
     }
 }

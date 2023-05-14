@@ -44,7 +44,7 @@ public class UserServiceImpl implements IUserService {
             logger.error("hashing password failed {}", e.getMessage());
         }
 
-        User user = new User(signUpRequest.getFirstName(), signUpRequest.getLastName(), signUpRequest.getEmail(), signUpRequest.getUserName(), encryptedPassword);
+        User user = new User(signUpRequest.getFirstName(), signUpRequest.getLastName(), signUpRequest.getEmail(), encryptedPassword);
 
         user.setRole(Role.USER);
 
@@ -61,7 +61,7 @@ public class UserServiceImpl implements IUserService {
 
     public SignInResponse signIn(SignInRequest signInRequest) {
         try {
-            User user = userRepository.findByUserName(signInRequest.getUserName());
+            User user = userRepository.findByEmail(signInRequest.getEmail());
 
             if (user == null) {
                 throw new CustomException("user not present");
@@ -71,9 +71,9 @@ public class UserServiceImpl implements IUserService {
                 throw new CustomException("Wrong password");
             }
 
-            Token token = authenticationService.getToken(user);
+            String token = (authenticationService.retrieveToken(user).getToken());
 
-            return new SignInResponse("success", token.getToken());
+            return new SignInResponse("success", user.getFirstName(), token);
 
         } catch (NoSuchAlgorithmException e) {
             throw new CustomException(e.getMessage());
